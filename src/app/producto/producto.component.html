@@ -1,0 +1,45 @@
+
+<div class="search-container">
+  <input [formControl]="palabraClave" placeholder="Buscar productos..." class="search-input" />
+</div>
+
+
+
+  <div class="ppc">
+    <button (click)="ppc(1)" class="ppc-button" style="background-color: #9B8F79; color: white;">SMARTPHONES</button>
+    <button (click)="ppc(2)" class="ppc-button" style="background-color: #87794E; color: white;" >TABLETS</button>
+    <button (click)="ppc(3)" class="ppc-button" style="background-color: #343434; color: white;">SMARTWATCHS</button>
+  </div>
+  
+  
+  <div class="</div>containe</div>r mt-4">
+    <div class="row">
+      <div class="col-md-3 mb-5" *ngFor="let producto of listaProductos"> 
+        <mat-card class="card mat-elevation-z2">
+          <img mat-card-image class="card-image" [src]="producto.imagen" alt="{{ producto.modelo }}">
+          <mat-card-content>
+            <label>{{ producto.nombre }}</label>
+            <h2>{{ producto.modelo }}</h2>
+            <p><strong>Color:</strong> {{ producto.color }}</p>
+            <p><strong>Almacenamiento:</strong> {{ producto.almacenamiento }} GB</p>
+            <p><strong>RAM:</strong> {{ producto.ram }} GB</p>
+            <p><strong>Procesador:</strong> {{ producto.procesador }}</p>
+            <div class="text-center">
+              <button [style.background-color]="producto.color" class="btn btn-primary"></button>
+            </div>
+            <br>
+            <h1 class="text-center">
+              <span class="card-price">${{ producto.precio }}</span>
+            </h1>
+            <div class="text-center">
+              <button class="btn btn-color" style="background-color: grey; color: white;"><i class="bi bi-cart-fill">Comprar Ahora</i></button>
+              <br>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  
+    <h1 *ngIf="!isResultLoaded">Cargando Datos.....</h1>
+  </div>
+  <router-outlet></router-outlet>
